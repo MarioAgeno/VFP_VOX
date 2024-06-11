@@ -1,0 +1,55 @@
+*       *********************************************************
+*       *                                                         
+*       * 06/04/23             MENUVOX.MPR              20:06:50  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (C) 2023 Nombre de la organización            
+*       * Dirección                                               
+*       * Ciudad,     Código pos                                  
+*       * País                                              
+*       *                                                         
+*       * Descripción:                                            
+*       * Este programa se generó automáticamente por GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _6l51740c6 OF _MSYSMENU PROMPT "\<Controlador" COLOR SCHEME 3 ;
+	KEY ALT+C, ""
+DEFINE PAD _6l51740c7 OF _MSYSMENU PROMPT "\<Salir" COLOR SCHEME 3 ;
+	KEY ALT+S, ""
+ON PAD _6l51740c6 OF _MSYSMENU ACTIVATE POPUP controlado
+ON SELECTION PAD _6l51740c7 OF _MSYSMENU oApp.CerrarAplicacion
+
+DEFINE POPUP controlado MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF controlado PROMPT "\<Lecturas Surtidores"
+DEFINE BAR 2 OF controlado PROMPT "\<Despachos por surtidores"
+DEFINE BAR 3 OF controlado PROMPT "Cierre de Turnos"
+DEFINE BAR 4 OF controlado PROMPT "\-"
+DEFINE BAR 5 OF controlado PROMPT "\<Configuracion VOX"
+DEFINE BAR 6 OF controlado PROMPT "\<Despachos y Funciones"
+DEFINE BAR 7 OF controlado PROMPT "\<Funciones VOX - DEMO"
+DEFINE BAR 8 OF controlado PROMPT "\-"
+DEFINE BAR 9 OF controlado PROMPT "Crear Indice de Tabla"
+DEFINE BAR 10 OF controlado PROMPT "Crear Nueva Tabla"
+ON SELECTION BAR 1 OF controlado DO FORM voxDespachos
+ON SELECTION BAR 2 OF controlado DO FORM voxDespachosSurtidor
+ON SELECTION BAR 3 OF controlado DO FORM voxCierreTurno
+ON SELECTION BAR 5 OF controlado DO FORM voxConfiguracion
+ON SELECTION BAR 6 OF controlado DO FORM voxFunciones
+ON SELECTION BAR 7 OF controlado DO FORM voxDemo
+ON SELECTION BAR 9 OF controlado DO CrearIndice
+ON SELECTION BAR 10 OF controlado DO CrearTabla
